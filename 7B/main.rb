@@ -36,11 +36,6 @@ $stdin.each_line do |line|
   letter_map[dependency].unlocks.push(unlock)
   letter_map[unlock].dependencies.push(dependency)
 end
-
-letter_map.each do |key, value|
-  p key
-  p value
-end
 num_nodes = letter_map.keys.length
 
 time = 0
@@ -77,14 +72,7 @@ while num_nodes > executed.length
     end
   end
 
-  #p time
-  #p workers
-  #p inprogres
-  #p execution
-  #p '-----------------------'
-
-  time += 1
+  time += 1 if num_nodes != executed.length
 end
 
-p execution.join('')
 p time
